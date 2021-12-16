@@ -69,4 +69,14 @@ public class Util {
         }
         return temp;
     }
+
+    public static ArrayList<Character> findNumberOfCommonLetterInString (String firstString, String secondString){
+        ArrayList<Character> commonLetters = new ArrayList<>();
+        for(int i = 0; i < firstString.length() && i < secondString.length(); i++) {
+            if(firstString.charAt(i) == secondString.charAt(i)){
+                commonLetters.add(firstString.charAt(i));
+            }
+        }
+        return commonLetters;
+    }
 }
