@@ -52,7 +52,6 @@ public class Util {
         // Create a list from elements of HashMap
         List<Map.Entry<String, Integer> > list =
                 new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
-
         // Sort the list
         Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
             public int compare(Map.Entry<String, Integer> o1,
@@ -61,13 +60,30 @@ public class Util {
                 return (o1.getValue()).compareTo(o2.getValue());
             }
         });
-
         // put data from sorted list to hashmap
         HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
         for (Map.Entry<String, Integer> aa : list) {
             temp.put(aa.getKey(), aa.getValue());
         }
         return temp;
+    }
+
+    public static boolean findAnagramStrings(String stringOne,String stringTwo){
+
+        // Early termination check, if strings are of unequal lengths,
+        // then they cannot be anagrams
+        if ( stringOne.length() != stringTwo.length() ) {
+            return false;
+        }
+        stringOne=stringOne.toLowerCase();
+        stringTwo=stringTwo.toLowerCase();
+        char[] charArrayOne = stringOne.toCharArray();
+        char[] charArrayTwo = stringTwo.toCharArray();
+        Arrays.sort(charArrayOne);
+        Arrays.sort(charArrayTwo);
+        String sortedStringOne = new String(charArrayOne);
+        String sortedStringTwo = new String(charArrayTwo);
+        return sortedStringOne.equals(sortedStringTwo);
     }
 
     public static ArrayList<Character> findNumberOfCommonLetterInString (String firstString, String secondString){
