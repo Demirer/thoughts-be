@@ -95,4 +95,26 @@ public class Util {
         }
         return commonLetters;
     }
+
+    public static int[] findAndRemoveDuplicates(int[] numbersWithDuplicates) {
+    //TODO: IMPROVE THIS STILL SHOW NULL CELLS IN PRIMITIVE ARRAY
+        // Sorting array to bring duplicates together
+        Arrays.sort(numbersWithDuplicates);
+
+        int[] result = new int[numbersWithDuplicates.length];
+        int previous = numbersWithDuplicates[0];
+        result[0] = previous;
+
+        for (int i = 1; i < numbersWithDuplicates.length; i++) {
+            int ch = numbersWithDuplicates[i];
+
+            if (previous != ch) {
+                result[i] = ch;
+            }
+            previous = ch;
+        }
+        return result;
+
+    }
 }
+
