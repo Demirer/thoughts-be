@@ -1,5 +1,7 @@
 package com.thoughts_be.transaction_util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -115,6 +117,13 @@ public class Util {
         }
         return result;
 
+    }
+    public static String timeConversion(String s) throws ParseException {
+        SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat amPmParseFormat = new SimpleDateFormat("hh:mm:ssa");
+        Date date = amPmParseFormat.parse(s);
+        System.out.println(displayFormat.format(date));
+        return displayFormat.format(date);
     }
 }
 
