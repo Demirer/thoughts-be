@@ -23,7 +23,7 @@ public class Util {
     }
 
     public static  String[] convertStringArrayListToStringArray(List<String> stringList){
-        final String[] stringArray = stringList.toArray(new String[0]);
+        final String[] stringArray = stringList.toArray(new String[stringList.size()]);
         return stringArray;
     }
 
